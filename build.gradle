@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version "2.9.6"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    runtimeOnly  "org.junit.jupiter:junit-jupiter-api:5.8.1"
+    implementation  "org.junit.platform:junit-platform-launcher:1.8.2"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+allure {
+    adapter.autoconfigure = true
+    version = "2.19.0"
+
+    useJUnit5 {
+        version = "2.19.0"
+    }
+}
